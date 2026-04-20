@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Oestroy()
+    private void OnDestroy()
     {
         if (Instance == this)
         {
