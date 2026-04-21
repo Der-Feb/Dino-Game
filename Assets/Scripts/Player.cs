@@ -4,7 +4,7 @@ using UnityEngine.TextCore.Text;
 public class Player : MonoBehaviour
 {
     private CharacterController characterController;
-    public float jumpForce = 10f;
+    public float jumpForce = 13.5f;
     public float gravity = 9.80667f;
     private Vector3 direction;
 
