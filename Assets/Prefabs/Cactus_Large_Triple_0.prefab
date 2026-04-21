@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4741370964345215152}
   - component: {fileID: 8935157473352495418}
   - component: {fileID: 1147473455886375954}
+  - component: {fileID: 5631832895449944837}
   m_Layer: 0
   m_Name: Cactus_Large_Triple_0
   m_TagString: Obstacle
@@ -113,3 +114,15 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5625, y: 1, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5631832895449944837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4005006809376136694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c4bbb610dbe36b4b9b8c0723acfb532, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Obstacles
