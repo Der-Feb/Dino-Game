@@ -54,3 +54,6 @@ crashlytics-build.properties
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# 3rd Party Packages
+Assets/TextMesh Pro/
