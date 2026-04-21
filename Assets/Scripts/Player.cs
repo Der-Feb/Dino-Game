@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
     }
-
     private void OnEnable()
     {
         direction = Vector3.zero;
@@ -37,5 +36,13 @@ public class Player : MonoBehaviour
         }
 
         characterController.Move(direction * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Obstacle"))
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 }
