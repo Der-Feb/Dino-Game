@@ -3,6 +3,14 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+public enum SoundType
+{
+    Jump, 
+    Die,
+    Score
+}
+
 public class GameManager : MonoBehaviour
 {
     // a game-manager singleton for the application
@@ -22,6 +30,15 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public float score;
+
+    [Header("Audio")]
+    public AudioSource sfxSource;
+    public AudioClip jumpSound;
+    public AudioClip dieSound;
+    public AudioClip scoreSound;
+
+    private float nextScoreMilestone = 100f;
+
 
     private void Awake()
     {
@@ -85,6 +102,7 @@ public class GameManager : MonoBehaviour
         resetButton.gameObject.SetActive(true);
 
         UpdateHiScore();
+        PlaySound(SoundType.Die);
     }
 
     private void Update()
@@ -93,6 +111,11 @@ public class GameManager : MonoBehaviour
 
         score += gameSpeed * Time.deltaTime;
         scoreText.text = Mathf.FloorToInt(score).ToString("D5");
+
+        if(score % nextScoreMilestone == 0)
+        {
+            PlaySound(SoundType.Score);
+        }
     }
 
     private void UpdateHiScore()
@@ -106,5 +129,23 @@ public class GameManager : MonoBehaviour
         }
 
         hiScoreText.text = Mathf.FloorToInt(hiscore).ToString("D5");
+    }
+
+    public void PlaySound(SoundType type)
+    {
+        switch(type)
+        {
+            case SoundType.Jump:
+                sfxSource.PlayOneShot(jumpSound);
+                break;
+
+            case SoundType.Die:
+                sfxSource.PlayOneShot(dieSound);
+                break;
+
+            case SoundType.Score:
+                sfxSource.PlayOneShot(scoreSound);
+                break;
+        }
     }
 }

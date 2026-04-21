@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
             if(Input.GetButton("Jump"))
             {
                 direction.y = jumpForce;
+                GameManager.Instance.PlaySound(SoundType.Jump);
             }
         }
         else
