@@ -120,14 +120,7 @@ public class GameManager : MonoBehaviour
 
         if(score >= nextCycleScore)
         {
-            if(!DayNightCycle.Instance.isNight)
-            {
-                DayNightCycle.Instance.SetNight();
-            }
-            else
-            {
-                DayNightCycle.Instance.SetDay();  
-            }
+            DayNightCycle.Instance.ToggleCycle();
 
             nextCycleScore += nextCycleScore;
         }

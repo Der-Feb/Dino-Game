@@ -228,7 +228,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 286, y: 137}
+  m_AnchoredPosition: {x: 286, y: 175.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &79706264
@@ -365,7 +365,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 28, y: 137}
+  m_AnchoredPosition: {x: 28, y: 174.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &148595970
@@ -557,7 +557,7 @@ Transform:
   m_GameObject: {fileID: 510058165}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.046229, y: -2.03987, z: 0}
+  m_LocalPosition: {x: -6.75, y: -1.94, z: 0}
   m_LocalScale: {x: 1, y: 1.0357915, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -725,7 +725,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.754717, g: 0.7369171, b: 0.7369171, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -875,6 +875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 763710874}
   - component: {fileID: 763710873}
+  - component: {fileID: 763710875}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -905,6 +906,8 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: 4cb7a711ef268c6498d868d73f1d88b8, type: 3}
   dieSound: {fileID: 8300000, guid: 2d1e7cb3de28095408dab3e5704f02cf, type: 3}
   scoreSound: {fileID: 8300000, guid: d0812ad7d40d3ba44bf36602f9dcd0a9, type: 3}
+  nextScoreMilestone: 100
+  nextCycleScore: 200
 --- !u!4 &763710874
 Transform:
   m_ObjectHideFlags: 0
@@ -923,6 +926,22 @@ Transform:
   - {fileID: 17389509}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &763710875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 763710872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208bbf6edfb4e3443b3f18cf7b769407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DayNightCycle
+  mainCamera: {fileID: 519420031}
+  dayColor: {r: 1, g: 1, b: 1, a: 1}
+  nightColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
+  isNight: 0
 --- !u!1 &914453335
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,7 +1416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 155, y: 137}
+  m_AnchoredPosition: {x: 155, y: 175.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1650387998
