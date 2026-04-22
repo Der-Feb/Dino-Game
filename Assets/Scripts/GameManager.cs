@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
     public AudioClip dieSound;
     public AudioClip scoreSound;
 
-    private float nextScoreMilestone = 100f;
-
+    public float nextScoreMilestone = 100f;
+    public float nextCycleScore = 200f;
 
     private void Awake()
     {
@@ -112,9 +112,24 @@ public class GameManager : MonoBehaviour
         score += gameSpeed * Time.deltaTime;
         scoreText.text = Mathf.FloorToInt(score).ToString("D5");
 
-        if(score % nextScoreMilestone == 0)
+        if(score >= nextScoreMilestone)
         {
             PlaySound(SoundType.Score);
+            nextScoreMilestone += nextScoreMilestone;
+        }
+
+        if(score >= nextCycleScore)
+        {
+            if(!DayNightCycle.Instance.isNight)
+            {
+                DayNightCycle.Instance.SetNight();
+            }
+            else
+            {
+                DayNightCycle.Instance.SetDay();  
+            }
+
+            nextCycleScore += nextCycleScore;
         }
     }
 
