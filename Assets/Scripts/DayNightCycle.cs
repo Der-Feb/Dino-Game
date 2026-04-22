@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 
@@ -7,26 +8,36 @@ public class DayNightCycle : MonoBehaviour
 
     public Camera mainCamera;
 
-    private Color dayColor = Color.white;
-    private Color nightColor = new Color(51f / 255f, 51f / 255f, 51f / 255f);
+    public Color dayColor = Color.white;
+    public Color nightColor = new Color(51f / 255f, 51f / 255f, 51f / 255f);
 
-    [HideInInspector]
-    public bool isNight = false;
+    [HideInInspector] public bool isNight = false;
+    private float transitionDuration = 2f;
+    private Coroutine currentTransition;
 
-    public void Awake()
+    public void Awake() => Instance = this;
+
+    public void ToggleCycle()
     {
-        Instance = this;
+        isNight = !isNight;
+        Color targetColor = isNight ? nightColor : dayColor;
+
+        if(currentTransition != null) StopCoroutine(currentTransition);
+        currentTransition = StartCoroutine(LerpColor(targetColor));
     }
 
-    public void SetNight()
+    private IEnumerator LerpColor(Color targetColor)
     {
-        mainCamera.backgroundColor = nightColor;
-        isNight = true;
-    }
+        float time = 0;
+        Color startColor = mainCamera.backgroundColor;
 
-    public void SetDay()
-    {
-        mainCamera.backgroundColor = dayColor;
-        isNight = false;
+        while(time < transitionDuration)
+        {
+            mainCamera.backgroundColor = Color.Lerp(startColor, targetColor, time / transitionDuration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        mainCamera.backgroundColor = targetColor;
     }
 }

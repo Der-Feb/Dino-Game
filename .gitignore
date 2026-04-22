@@ -57,3 +57,5 @@ Thumbs.db
 
 # 3rd Party Packages
 Assets/TextMesh Pro/
+config.bat
+node_modules
